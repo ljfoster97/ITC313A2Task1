@@ -8,22 +8,38 @@ import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.geometry.Insets;
 
+import java.util.ArrayList;
+
 public class Task1 extends Application {
-    @Override // Override the start method in the Application class
+    @Override
     public void start(Stage primaryStage) {
 
-        // Create a pane
+        // Create a pane.
         Pane pane = new Pane();
 
+        // Double array for the scores.
         double[] scores = {15, 20, 25, 35, 5};
 
+        // String array for the grades.
         String[] grades = {"HD", "DI", "CR", "PS", "FL"};
 
-        // Create four Arcs
+//        Color[] colors = {Color.GREEN, Color.BLUE, Color.CYAN, Color.ORANGE, Color.RED};
+//
+//        ArrayList<Arc> arcArrayList = new ArrayList<>();
+//
+//        for(int i = 0; i< grades.length;i++){
+//            Arc arc = new Arc(100,100,80,80,0,360 * (scores[i] / 100));
+//            arc.setType(ArcType.ROUND);
+//            arc.setFill(colors[i]);
+//            arcArrayList.add(arc);
+//        }
+
+        // Create arcs for the scores.
         Arc arc1 = new Arc(100, 100, 80, 80, 0, 360 * (scores[0] / 100));
         arc1.setFill(Color.GREEN);
         arc1.setType(ArcType.ROUND);
 
+        // Set up
         Arc arc2 = new Arc(100, 100, 80, 80, arc1.getStartAngle() +
                 arc1.getLength(), 360 * (scores[1] / 100));
         arc2.setFill(Color.BLUE);
@@ -55,14 +71,17 @@ public class Task1 extends Application {
 
         // Create a Scene and place it in the pane.
         Scene scene = new Scene(pane);
-
+        // Configure stage.
         primaryStage.setHeight(250);
         primaryStage.setWidth(300);
         primaryStage.centerOnScreen();
         // Make sure the window isn't resizeable.
         primaryStage.setResizable(false);
-        primaryStage.setTitle("Grade Distribution"); // Set the stage title
-        primaryStage.setScene(scene); // Place the scene in the stage
-        primaryStage.show(); // Display the stage
+        // Set the stage title
+        primaryStage.setTitle("Grade Distribution");
+        // Place the scene in the stage
+        primaryStage.setScene(scene);
+        // Display the stage
+        primaryStage.show();
     }
 }
